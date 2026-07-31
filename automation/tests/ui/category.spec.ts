@@ -8,10 +8,12 @@ test.describe("Category Filter", () => {
   test.beforeEach(async ({ page }) => {
     const home = new HomePage(page);
     await home.open();
+    
   });
 
   test("should display all category chips", async ({ page }) => {
     const category = new CategoryPage(page);
+    
 
     await category.verifyCategoryVisible("All");
     await category.verifyCategoryVisible("Electronics");
@@ -23,44 +25,53 @@ test.describe("Category Filter", () => {
   });
 
   test("should filter Electronics products", async ({ page }) => {
-    const category = new CategoryPage(page);
+   // const category = new CategoryPage(page);
+const home = new HomePage(page);
 
-    await category.selectCategory("Electronics");
-    await category.verifyProductCount(5);
+    await home.category.selectCategory("Electronics");
+    await home.category.verifyProductCount(5);
   });
 
   test("should filter Books products", async ({ page }) => {
-    const category = new CategoryPage(page);
-
-    await category.selectCategory("Books");
-    await category.verifyProductCount(1);
+  //  const category = new CategoryPage(page);
+const home = new HomePage(page);
+    await home.category.selectCategory("Books");
+    await home.category.verifyProductCount(1);
   });
 
   test("should show all products when All is selected", async ({ page }) => {
-    const category = new CategoryPage(page);
-
-    await category.selectCategory("All");
-    await category.verifyProductCount(18);
+    //const category = new CategoryPage(page);
+const home = new HomePage(page);
+    await home.category.selectCategory("All");
+    await home.category.verifyProductCount(18);
   });
 
   test("should combine category and search filters", async ({ page }) => {
-    const category = new CategoryPage(page);
-    const search = new SearchPage(page);
+   // const category = new CategoryPage(page);
+   // const search = new SearchPage(page);
+const home = new HomePage(page);
 
-    await category.selectCategory("Electronics");
-    await search.search("Laptop");
+    await home.category.selectCategory("Electronics");
+    await home.search.search("Laptop");
 
-    await category.verifyProductCount(1);
+    await home.category.verifyProductCount(1);
   });
 
   test("should show no products when filters do not match", async ({ page }) => {
-    const category = new CategoryPage(page);
-    const search = new SearchPage(page);
+  //  const category = new CategoryPage(page);
+   // const search = new SearchPage(page);
 
-    await category.selectCategory("Books");
-    await search.search("Laptop");
+    // await category.selectCategory("Books");
+    // await search.search("Laptop");
 
-    await category.verifyNoProductsMessage();
+    const home = new HomePage(page);
+
+await home.category.selectCategory("Books");
+await home.search.search("Laptop");
+
+    await home.category.verifyNoProductsMessage();
   });
+
+  
 
 });
