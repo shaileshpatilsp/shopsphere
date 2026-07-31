@@ -1,5 +1,5 @@
 import { test, expect } from '@playwright/test';
-
+import { HeaderPage } from "../../pages/HeaderPage";
 test('ShopSphere API should be running', async ({ request }) => {
   const response = await request.get('http://localhost:5000/');
 
