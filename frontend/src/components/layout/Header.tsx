@@ -1,6 +1,7 @@
+import React from "react";
 import "./Header.css";
 
-function Header() {
+const Header: React.FC = () => {
   return (
     <header className="header" data-testid="header">
       <div className="header-top">
@@ -8,15 +9,15 @@ function Header() {
           ShopSphere
         </div>
 
-        <div className="search-container">
-          <input
-            type="text"
-            placeholder="Search products..."
-            className="search-input"
-            data-testid="search-input"
-            aria-label="Search products"
-          />
-        </div>
+        <nav className="navbar" aria-label="Main Navigation">
+          <ul className="nav-links">
+            <li><a href="#" data-testid="nav-home">Home</a></li>
+            <li><a href="#" data-testid="nav-products">Products</a></li>
+            <li><a href="#" data-testid="nav-deals">Deals</a></li>
+            <li><a href="#" data-testid="nav-about">About</a></li>
+            <li><a href="#" data-testid="nav-contact">Contact</a></li>
+          </ul>
+        </nav>
 
         <div className="header-actions">
           <button
@@ -34,18 +35,8 @@ function Header() {
           </button>
         </div>
       </div>
-
-      <nav className="navbar" aria-label="Main Navigation">
-        <ul className="nav-links">
-          <li><a href="#" data-testid="nav-home">Home</a></li>
-          <li><a href="#" data-testid="nav-products">Products</a></li>
-          <li><a href="#" data-testid="nav-deals">Deals</a></li>
-          <li><a href="#" data-testid="nav-about">About</a></li>
-          <li><a href="#" data-testid="nav-contact">Contact</a></li>
-        </ul>
-      </nav>
     </header>
   );
-}
+};
 
 export default Header;
