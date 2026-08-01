@@ -8,6 +8,7 @@ import ProductGrid from "./components/home/ProductGrid";
 import FeaturedProducts from "./components/home/FeaturedProducts"; // make sure this exists
 
 import { products } from "./data/products";
+import Footer from "./components/layout/Footer";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -52,6 +53,7 @@ function App() {
 
       {/* 👇 conditionally render FeaturedProducts */}
       {!hasActiveFilters && <FeaturedProducts />}
+      <Footer />
     </>
   );
 }

@@ -1,2 +1,5 @@
-automation/playwright-report/
-automation/test-results/
+# Playwright
+playwright-report/
+test-results/
+automation/tblob-report/
+ automation/playwright-report/index.html

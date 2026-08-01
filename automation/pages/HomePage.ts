@@ -6,6 +6,7 @@ import { HeroPage } from "./HeroPage";
 import { SearchPage } from "./SearchPage";
 import { CategoryPage } from "./CategoryPage";
 import { FeaturedProductsPage } from "./FeaturedProductsPage";
+import { FooterPage } from "./FooterPage";
 
 export class HomePage extends BasePage {
   readonly header: HeaderPage;
@@ -13,6 +14,7 @@ export class HomePage extends BasePage {
   readonly search: SearchPage;
   readonly category: CategoryPage;
   readonly featuredProducts: FeaturedProductsPage;
+  readonly footer: FooterPage;
 
   constructor(page: Page) {
     super(page);
@@ -22,6 +24,7 @@ export class HomePage extends BasePage {
     this.search = new SearchPage(page);
     this.category = new CategoryPage(page);
     this.featuredProducts = new FeaturedProductsPage(page);
+    this.footer = new FooterPage(page);
   }
 
   async open() {
