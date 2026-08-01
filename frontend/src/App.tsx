@@ -5,6 +5,7 @@ import Hero from "./components/home/Hero";
 import Search from "./components/home/Search";
 import CategoryList from "./components/home/CategoryList";
 import ProductGrid from "./components/home/ProductGrid";
+import FeaturedProducts from "./components/home/FeaturedProducts"; // make sure this exists
 
 import { products } from "./data/products";
 
@@ -22,19 +23,18 @@ function App() {
 
   const filteredProducts = products.filter((product) => {
     const matchesCategory =
-      selectedCategory === "All" ||
-      product.category === selectedCategory;
+      selectedCategory === "All" || product.category === selectedCategory;
 
     const matchesSearch =
-      product.name
-        .toLowerCase()
-        .includes(searchTerm.trim().toLowerCase()) ||
-      product.category
-        .toLowerCase()
-        .includes(searchTerm.trim().toLowerCase());
+      product.name.toLowerCase().includes(searchTerm.trim().toLowerCase()) ||
+      product.category.toLowerCase().includes(searchTerm.trim().toLowerCase());
 
     return matchesCategory && matchesSearch;
   });
+
+  // 👇 new constant
+  const hasActiveFilters =
+    searchTerm.trim() !== "" || selectedCategory !== "All";
 
   return (
     <>
@@ -49,6 +49,9 @@ function App() {
       />
 
       <ProductGrid products={filteredProducts} />
+
+      {/* 👇 conditionally render FeaturedProducts */}
+      {!hasActiveFilters && <FeaturedProducts />}
     </>
   );
 }

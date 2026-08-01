@@ -43,7 +43,7 @@ const home = new HomePage(page);
     //const category = new CategoryPage(page);
 const home = new HomePage(page);
     await home.category.selectCategory("All");
-    await home.category.verifyProductCount(18);
+    await home.category.verifyProductCount(22);
   });
 
   test("should combine category and search filters", async ({ page }) => {
